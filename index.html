@@ -4,96 +4,103 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#F4F1EA">
-<title>BACO® Design — Inspiration & Direction</title>
-<meta name="description" content="BACO Studio Design System: inspiración, marca, color, tipografía y recursos descargables.">
+<title>BACO Studio — Manual de marca</title>
+<meta name="description" content="Manual de marca de BACO Studio: logotipo, color, tipografía, normas, plantillas y recursos.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..700&family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- TOP BAR -->
 <header class="bar">
-  <a class="bar-logo" href="#/inspiration" aria-label="BACO inicio"><img src="assets/baco.png" alt="BACO"></a>
-  <nav class="switch" aria-label="Universos">
+  <a class="bar-logo" href="#/inspiration" aria-label="BACO Studio, inicio"><img src="assets/baco.png" alt="BACO Studio"></a>
+  <nav class="switch" aria-label="Secciones">
     <span class="switch-thumb" aria-hidden="true"></span>
-    <a href="#/inspiration" data-route="inspiration" aria-label="Inspiration">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.8 3.9 5.8 3.9 9s-1.3 6.2-3.9 9c-2.6-2.8-3.9-5.8-3.9-9S9.4 5.8 12 3z"/></svg>
-      <span>Inspiration</span>
-    </a>
-    <a href="#/direction" data-route="direction" aria-label="Direction">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
-      <span>Direction</span>
-    </a>
+    <a href="#/inspiration" data-route="inspiration">Inspiración</a>
+    <a href="#/direction" data-route="direction">Dirección</a>
   </nav>
   <div class="bar-right">
-    <a class="bar-link" href="#/direction/recursos">Recursos</a>
-    <a class="bar-pill" href="#/direction/kit"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 018 0v3"/></svg>Brand kit</a>
+    <a class="bar-btn" href="#/direction/recursos">Descargas</a>
   </div>
 </header>
 
-<!-- ROUTE CURTAIN -->
 <div class="curtain" aria-hidden="true"><span class="curtain-word"></span></div>
 
 <main>
-<!-- ================= INSPIRATION ================= -->
-<section class="view view-inspiration" id="inspiration" aria-label="Inspiration">
+<!-- ================= INSPIRACIÓN ================= -->
+<section class="view view-inspiration" id="inspiration" aria-label="Inspiración">
   <div class="intro">
-    <p class="eyebrow"><span class="dot"></span>BACO Studio — Design</p>
-    <h1 class="mega" data-split>Inspiration</h1>
-    <p class="lede">Construyendo un sistema para imaginar, proyectar y habitar. Ideas, materia y movimiento detrás de la marca.</p>
+    <p class="eyebrow">Manual de marca · 2026</p>
+    <h1 class="title">La marca BACO en el mundo real.</h1>
+    <p class="lede">Así se ve la identidad aplicada: en obra, en papel, en pantalla y en el espacio. Desliza para recorrer las aplicaciones.</p>
   </div>
 
-  <div class="reel" data-reel tabindex="0" aria-roledescription="carrusel" aria-label="Historias de BACO">
+  <div class="reel" data-reel tabindex="0" aria-roledescription="carrusel" aria-label="Aplicaciones de marca">
     <div class="reel-track">
 
-      <article class="card on-dark" data-title="El espacio lo cambia todo" data-tag="Forma · Espacio · Proporción" style="--c:#4F5A43;--k:#F4F1EA">
-        <div class="card-media scene-orbit">
-          <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
-          <img class="scene-logo" src="assets/baco.png" alt="">
+      <article class="card" data-title="Papelería" data-tag="Tarjeta de presentación y hoja membretada" style="--c:#E6DFD3">
+        <div class="mock m-paper">
+          <div class="letter">
+            <img src="assets/baco-studio.png" alt="">
+            <span class="ln w60"></span><span class="ln w80"></span><span class="ln w70"></span><span class="ln w40"></span>
+            <span class="ln w80"></span><span class="ln w60"></span>
+            <small>Calle 00 # 00-00 · Bogotá · bacostudio.co</small>
+          </div>
+          <div class="bcard front"><img src="assets/baco.png" alt=""></div>
+          <div class="bcard back"><b>Nombre Apellido</b><small>Arquitecta · Directora de proyecto</small><small>+57 300 000 0000</small></div>
         </div>
       </article>
 
-      <article class="card" data-title="Materia. Memoria. Forma." data-tag="Material · Luz · Textura" style="--c:#1C1B19;--k:#F4F1EA">
-        <div class="card-media scene-material">
-          <div class="tiles"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-          <div class="scene-word">Materia</div>
+      <article class="card" data-title="Valla de obra" data-tag="Cerramiento de proyecto en construcción" style="--c:#CFC6B7">
+        <div class="mock m-hoarding">
+          <div class="sky"></div>
+          <div class="hoard">
+            <div class="h-left on-dark"><img src="assets/baco-studio.png" alt=""></div>
+            <div class="h-right"><small>Próximamente</small><b>Residencias<br>La Fontana</b><small>Diseño y construcción · BACO Studio</small></div>
+          </div>
+          <div class="ground"></div>
         </div>
       </article>
 
-      <article class="card" data-title="Construir es imaginar" data-tag="Planta · Trazo · Obra" style="--c:#E6DFD3;--k:#1C1B19">
-        <div class="card-media scene-plan">
-          <svg viewBox="0 0 400 260" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-            <path class="draw" d="M40 40h320v180H40z"/>
-            <path class="draw d2" d="M40 120h130v100M170 40v40M230 40v180M230 150h130"/>
-            <path class="draw d3" d="M170 80a40 40 0 0140 40M230 150a30 30 0 0130-30"/>
-            <circle class="pin" cx="300" cy="90" r="9"/>
-          </svg>
-          <div class="scene-caption">PLANTA TIPO / 1:100</div>
+      <article class="card" data-title="Presentaciones" data-tag="Portada de propuesta para clientes" style="--c:#1C1B19">
+        <div class="mock m-slide">
+          <div class="slide">
+            <div class="s-top"><img src="assets/baco.png" alt=""><small>Propuesta · Noviembre 2026</small></div>
+            <div class="s-title">Casa Estelar<i>Propuesta arquitectónica</i></div>
+            <div class="s-img"></div>
+          </div>
         </div>
       </article>
 
-      <article class="card" data-title="Lo que viene empieza hoy" data-tag="Futuro · Diseño · Construcción" style="--c:#4F5A43;--k:#F4F1EA">
-        <div class="card-media scene-type">
-          <div class="marquee"><span>DISEÑAR · PROYECTAR · CONSTRUIR · HABITAR · </span><span>DISEÑAR · PROYECTAR · CONSTRUIR · HABITAR · </span></div>
-          <div class="marquee rev"><span>BACO STUDIO · BACO STUDIO · BACO STUDIO · </span><span>BACO STUDIO · BACO STUDIO · BACO STUDIO · </span></div>
-          <div class="marquee"><span>ESPACIO · LUZ · MATERIA · TIEMPO · </span><span>ESPACIO · LUZ · MATERIA · TIEMPO · </span></div>
+      <article class="card" data-title="Redes sociales" data-tag="Perfil y publicaciones de Instagram" style="--c:#4F5A43">
+        <div class="mock m-phone">
+          <div class="phone">
+            <div class="p-head"><span class="avatar"><img src="assets/baco.png" alt=""></span><div><b>bacostudio</b><small>Arquitectura y construcción</small></div></div>
+            <div class="p-grid">
+              <i class="g1"><span>Espacios<br>con sentido</span></i><i class="g2"></i><i class="g3"></i>
+              <i class="g4"></i><i class="g5"><span>Obra<br>terminada</span></i><i class="g6"></i>
+              <i class="g7"></i><i class="g8"></i><i class="g9"><span>Nuevo<br>proyecto</span></i>
+            </div>
+          </div>
         </div>
       </article>
 
-      <article class="card" data-title="Luz que define el lugar" data-tag="Sombra · Volumen · Hora" style="--c:#1C1B19;--k:#A3AC8E">
-        <div class="card-media scene-light">
-          <div class="sun"></div>
-          <div class="blocks"><i></i><i></i><i></i><i></i><i></i></div>
+      <article class="card" data-title="Señalética" data-tag="Placa de recepción en oficina" style="--c:#B9AE9C">
+        <div class="mock m-sign">
+          <div class="wall"></div>
+          <div class="plate on-dark"><img src="assets/baco-studio.png" alt=""></div>
+          <div class="desk"></div>
         </div>
       </article>
 
-      <article class="card" data-title="Una marca que permanece" data-tag="Identidad · Ritmo · Escala" style="--c:#F4F1EA;--k:#1C1B19">
-        <div class="card-media scene-scale">
-          <img src="assets/baco-studio.png" alt="">
-          <img src="assets/baco-studio.png" alt="">
-          <img src="assets/baco-studio.png" alt="">
+      <article class="card" data-title="Materialidad" data-tag="Paleta de materiales que inspira la marca" style="--c:#F4F1EA">
+        <div class="mock m-materials">
+          <figure><i class="mat wood"></i><figcaption>Roble natural</figcaption></figure>
+          <figure><i class="mat stone"></i><figcaption>Travertino</figcaption></figure>
+          <figure><i class="mat concrete"></i><figcaption>Concreto</figcaption></figure>
+          <figure><i class="mat olive"></i><figcaption>Verde olivo</figcaption></figure>
+          <figure><i class="mat steel"></i><figcaption>Acero oscuro</figcaption></figure>
         </div>
       </article>
 
@@ -102,8 +109,8 @@
 
   <div class="reel-ui">
     <div class="reel-caption" aria-live="polite">
-      <span class="reel-tag"></span>
       <h2 class="reel-title"></h2>
+      <span class="reel-tag"></span>
     </div>
     <div class="reel-controls">
       <span class="reel-count"><b>01</b> / 06</span>
@@ -113,255 +120,227 @@
       <button class="round solid" data-next aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
   </div>
-  <p class="hint">Arrastra, desliza o usa ← →</p>
 
-  <!-- principles strip -->
-  <section class="band">
-    <div class="band-head">
-      <p class="eyebrow"><span class="dot"></span>Filosofía</p>
-      <h2 class="big">Menos ruido.<br>Más espacio para las ideas.</h2>
+  <section class="about">
+    <div class="about-head">
+      <p class="eyebrow">Esencia</p>
+      <h2 class="h2">Diseñamos espacios con proporción, materia y luz.</h2>
     </div>
     <div class="principles">
-      <div class="principle reveal"><span class="num">01</span><h3>Precisión</h3><p>Cada línea tiene una razón. Diseñamos con la exactitud de un plano constructivo.</p></div>
-      <div class="principle reveal"><span class="num">02</span><h3>Proporción</h3><p>El vacío también comunica. Márgenes amplios, ritmo y escala con intención.</p></div>
-      <div class="principle reveal"><span class="num">03</span><h3>Permanencia</h3><p>Una identidad que no persigue modas: se reconoce en obra, en papel y en pantalla.</p></div>
+      <div class="principle reveal"><span class="num">01</span><h3>Precisión</h3><p>Cada decisión tiene una razón, con la exactitud de un plano constructivo.</p></div>
+      <div class="principle reveal"><span class="num">02</span><h3>Proporción</h3><p>El vacío también comunica: márgenes amplios, ritmo y escala con intención.</p></div>
+      <div class="principle reveal"><span class="num">03</span><h3>Permanencia</h3><p>Una identidad que no sigue modas y se reconoce en obra, en papel y en pantalla.</p></div>
     </div>
   </section>
 
-  <a class="cta-next" href="#/direction">
-    <span class="eyebrow">Siguiente</span>
-    <span class="cta-word">Direction <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  <a class="next-link" href="#/direction">
+    <span><span class="eyebrow">Siguiente</span><b>Dirección de marca</b><small>Logotipo, color, tipografía, normas y descargas</small></span>
+    <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
 </section>
 
-<!-- ================= DIRECTION ================= -->
-<section class="view view-direction" id="direction" aria-label="Direction">
+<!-- ================= DIRECCIÓN ================= -->
+<section class="view view-direction" id="direction" aria-label="Dirección">
   <div class="intro">
-    <p class="eyebrow"><span class="dot"></span>BACO Studio — Design system</p>
-    <h1 class="mega" data-split>Direction</h1>
-    <p class="lede">Todo lo que necesitas para aplicar la identidad: marca, color, tipografía, reglas y archivos para descargar.</p>
+    <p class="eyebrow">Manual de marca · Sistema</p>
+    <h1 class="title">Dirección de marca.</h1>
+    <p class="lede">Todo lo necesario para aplicar la identidad de BACO Studio de forma correcta. Abre cada sección para ver el detalle.</p>
   </div>
 
   <div class="grid">
-    <a class="tile t-lg" href="#/direction/logotipo" style="--c:#F4F1EA;--k:#1C1B19">
-      <div class="tile-art light art-logo"><img src="assets/baco-studio.png" alt=""></div>
-      <span class="tile-label">Logotipo</span>
+    <a class="tile" href="#/direction/logotipo">
+      <div class="tile-art ta-logo"><img src="assets/baco-studio.png" alt=""></div>
+      <div class="tile-meta"><span class="num">01</span><b>Logotipo</b><small>Versiones y área de respeto</small></div>
     </a>
-    <a class="tile" href="#/direction/color" style="--c:#4F5A43;--k:#F4F1EA">
-      <div class="tile-art art-color"><i></i><i></i><i></i><i></i></div>
-      <span class="tile-label">Color</span>
+    <a class="tile" href="#/direction/color">
+      <div class="tile-art ta-color"><i style="--c:#1C1B19"></i><i style="--c:#4F5A43"></i><i style="--c:#E6DFD3"></i><i style="--c:#F4F1EA"></i></div>
+      <div class="tile-meta"><span class="num">02</span><b>Color</b><small>Paleta y combinaciones</small></div>
     </a>
-    <a class="tile" href="#/direction/tipografia" style="--c:#1C1B19;--k:#F4F1EA">
-      <div class="tile-art art-type"><span>Aa</span></div>
-      <span class="tile-label">Tipografía</span>
+    <a class="tile" href="#/direction/tipografia">
+      <div class="tile-art ta-type"><span class="serif">Aa</span><span class="sans">Aa</span></div>
+      <div class="tile-meta"><span class="num">03</span><b>Tipografía</b><small>Bodoni Moda · Inter</small></div>
     </a>
-    <a class="tile" href="#/direction/laboratorio" style="--c:#E6DFD3;--k:#1C1B19">
-      <div class="tile-art art-lab"><div class="lab-frame"><img src="assets/baco.png" alt=""></div></div>
-      <span class="tile-label">Laboratorio</span>
+    <a class="tile" href="#/direction/normas">
+      <div class="tile-art ta-rules"><div class="cs"><img src="assets/baco.png" alt=""></div></div>
+      <div class="tile-meta"><span class="num">04</span><b>Normas de uso</b><small>Lo que sí y lo que no</small></div>
     </a>
-    <a class="tile" href="#/direction/normas" style="--c:#4F5A43;--k:#F4F1EA">
-      <div class="tile-art art-rules"><span class="ok">✓</span><span class="no">✕</span></div>
-      <span class="tile-label">Normas</span>
+    <a class="tile" href="#/direction/voz">
+      <div class="tile-art ta-voice"><p>“Diseñamos espacios que funcionan y se sienten bien.”</p></div>
+      <div class="tile-meta"><span class="num">05</span><b>Tono de voz</b><small>Cómo hablamos</small></div>
     </a>
-    <a class="tile" href="#/direction/plantillas" style="--c:#1C1B19;--k:#A3AC8E">
-      <div class="tile-art art-tpl"><i></i><i></i><i></i></div>
-      <span class="tile-label">Plantillas</span>
+    <a class="tile" href="#/direction/plantillas">
+      <div class="tile-art ta-tpl"><i class="t1"></i><i class="t2"></i></div>
+      <div class="tile-meta"><span class="num">06</span><b>Plantillas</b><small>Redes y presentaciones</small></div>
     </a>
-    <a class="tile" href="#/direction/movimiento" style="--c:#F4F1EA;--k:#1C1B19">
-      <div class="tile-art light art-motion"><i></i><i></i><i></i></div>
-      <span class="tile-label">Movimiento</span>
+    <a class="tile" href="#/direction/laboratorio">
+      <div class="tile-art ta-lab"><span style="--c:#F4F1EA"></span><span style="--c:#4F5A43"></span><span style="--c:#1C1B19"></span></div>
+      <div class="tile-meta"><span class="num">07</span><b>Prueba del logo</b><small>Fondo, escala y descarga</small></div>
     </a>
-    <a class="tile" href="#/direction/voz" style="--c:#E6DFD3;--k:#1C1B19">
-      <div class="tile-art art-voice"><span>“Hola,<br>construyamos.”</span></div>
-      <span class="tile-label">Tono de voz</span>
-    </a>
-    <a class="tile t-lg" href="#/direction/recursos" style="--c:#1C1B19;--k:#F4F1EA">
-      <div class="tile-art art-dl"><svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></div>
-      <span class="tile-label">Recursos</span>
-    </a>
-    <a class="tile" href="#/direction/kit" style="--c:#4F5A43;--k:#F4F1EA">
-      <div class="tile-art art-kit"><span>.zip</span></div>
-      <span class="tile-label">Brand kit</span>
+    <a class="tile" href="#/direction/recursos">
+      <div class="tile-art ta-dl"><ul><li>Logotipos · PNG</li><li>Plantillas · SVG</li><li>Colores · CSS</li><li>Kit completo · ZIP</li></ul></div>
+      <div class="tile-meta"><span class="num">08</span><b>Descargas</b><small>Archivos y kit completo</small></div>
     </a>
   </div>
 
-  <a class="cta-next" href="#/inspiration">
-    <span class="eyebrow">Volver a</span>
-    <span class="cta-word">Inspiration <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+  <a class="next-link" href="#/inspiration">
+    <span><span class="eyebrow">Volver a</span><b>Inspiración</b><small>La marca aplicada en el mundo real</small></span>
+    <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
   </a>
 </section>
 </main>
 
-<!-- ================= SHEETS (Direction details) ================= -->
+<!-- ================= PANELES ================= -->
 <div class="sheet-scrim" data-close></div>
-<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetCrumb">
   <div class="sheet-top">
-    <span class="eyebrow" id="sheetCrumb">Direction</span>
+    <span class="eyebrow" id="sheetCrumb">Dirección</span>
     <div class="sheet-nav">
-      <button class="round" data-sheet-prev aria-label="Anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
-      <button class="round" data-sheet-next aria-label="Siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
-      <button class="round solid" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="round sm" data-sheet-prev aria-label="Sección anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="round sm" data-sheet-next aria-label="Sección siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      <button class="round sm solid" data-close aria-label="Cerrar"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
   <div class="sheet-body">
 
-    <article class="panel" data-panel="logotipo" data-name="Logotipo">
-      <h2 class="big" id="sheetTitle">One mark.<br>Many uses.</h2>
-      <p class="lede">Los logotipos originales se conservan intactos. Prioriza contraste, proporción y legibilidad. Descárgalos desde cada tarjeta.</p>
+    <article class="panel" data-panel="logotipo" data-name="01 Logotipo">
+      <h2 class="h2">Logotipo</h2>
+      <p class="lede">Los logotipos originales se usan tal como fueron diseñados. Hay dos versiones: la principal, con «Studio» debajo, y la horizontal, con «Studio» vertical.</p>
       <div class="two">
-        <figure class="logo-card light"><img src="assets/baco-studio.png" alt="Logotipo BACO Studio"><figcaption><span>Principal · BACO Studio</span><a class="chip" href="assets/baco-studio.png" download="BACO-Studio-original.png">↓ PNG</a></figcaption></figure>
-        <figure class="logo-card lime"><img src="assets/baco.png" alt="Logotipo BACO"><figcaption><span>Alternativo · BACO</span><a class="chip" href="assets/baco.png" download="BACO-original.png">↓ PNG</a></figcaption></figure>
-        <figure class="logo-card dark"><img src="assets/baco-studio.png" alt="BACO Studio en negativo"><figcaption><span>Negativo · sobre Ink</span></figcaption></figure>
-        <figure class="logo-card stone"><img src="assets/baco.png" alt="BACO sobre Stone"><figcaption><span>Sobre Stone</span></figcaption></figure>
+        <figure class="logo-card"><img src="assets/baco-studio.png" alt="Logotipo principal BACO Studio"><figcaption><span>Principal</span><a class="chip" href="assets/baco-studio.png" download="BACO-Studio-original.png">Descargar PNG</a></figcaption></figure>
+        <figure class="logo-card"><img src="assets/baco.png" alt="Logotipo horizontal BACO"><figcaption><span>Horizontal</span><a class="chip" href="assets/baco.png" download="BACO-original.png">Descargar PNG</a></figcaption></figure>
+        <figure class="logo-card dark on-dark"><img src="assets/baco-studio.png" alt="Logotipo en negativo"><figcaption><span>Negativo, sobre Carbón</span></figcaption></figure>
+        <figure class="logo-card olive on-dark"><img src="assets/baco.png" alt="Logotipo sobre Olivo"><figcaption><span>Negativo, sobre Olivo</span></figcaption></figure>
       </div>
       <div class="clear-space">
-        <div class="cs-box"><img src="assets/baco.png" alt=""><span class="cs-x t">x</span><span class="cs-x r">x</span><span class="cs-x b">x</span><span class="cs-x l">x</span></div>
-        <div><h3>Área de respeto</h3><p>Deja alrededor del logo un margen mínimo igual a la altura de la «O» (x). Tamaño mínimo digital: 96 px de ancho; impreso: 25 mm.</p></div>
+        <div class="cs-box"><img src="assets/baco.png" alt="Área de respeto del logotipo"></div>
+        <div><h3 class="h3">Área de respeto y tamaño mínimo</h3><p>Deja alrededor del logo un margen libre igual a la altura de la letra «O». Ningún texto o imagen debe entrar en esa zona.</p><p>Tamaño mínimo: 96 px de ancho en pantalla y 25 mm en impresión.</p></div>
       </div>
     </article>
 
-    <article class="panel" data-panel="color" data-name="Color">
-      <h2 class="big">Colour.<br>With intent.</h2>
-      <p class="lede">Una paleta digital para la experiencia BACO. El Olivo es un acento sobrio para acciones y detalles: nunca recolorea los logos originales. Clic en una muestra para copiar.</p>
+    <article class="panel" data-panel="color" data-name="02 Color">
+      <h2 class="h2">Color</h2>
+      <p class="lede">Una paleta cálida y sobria, inspirada en materiales de construcción. El Olivo es el único acento. Haz clic en un color para copiar su código.</p>
       <div class="swatches">
-        <button class="sw" data-hex="#1C1B19" style="--c:#1C1B19;--k:#F4F1EA"><b>Carbón</b><span>#1C1B19</span><small>Texto, fondos profundos</small></button>
+        <button class="sw" data-hex="#1C1B19" style="--c:#1C1B19;--k:#F4F1EA"><b>Carbón</b><span>#1C1B19</span><small>Textos y fondos oscuros</small></button>
         <button class="sw" data-hex="#F4F1EA" style="--c:#F4F1EA;--k:#1C1B19"><b>Hueso</b><span>#F4F1EA</span><small>Fondo principal</small></button>
-        <button class="sw" data-hex="#4F5A43" style="--c:#4F5A43;--k:#F4F1EA"><b>Olivo</b><span>#4F5A43</span><small>Acento, acciones, detalles</small></button>
-        <button class="sw" data-hex="#E6DFD3" style="--c:#E6DFD3;--k:#1C1B19"><b>Travertino</b><span>#E6DFD3</span><small>Superficies, tarjetas</small></button>
+        <button class="sw" data-hex="#E6DFD3" style="--c:#E6DFD3;--k:#1C1B19"><b>Travertino</b><span>#E6DFD3</span><small>Superficies y tarjetas</small></button>
+        <button class="sw" data-hex="#4F5A43" style="--c:#4F5A43;--k:#F4F1EA"><b>Olivo</b><span>#4F5A43</span><small>Acento y botones</small></button>
       </div>
-      <h3 class="sub">Combinaciones aprobadas</h3>
+      <h3 class="h3">Combinaciones aprobadas</h3>
       <div class="pairs">
-        <div style="background:#1C1B19;color:#F4F1EA">Aa <small>Hueso / Carbón · 15.2:1</small></div>
-        <div style="background:#4F5A43;color:#F4F1EA">Aa <small>Hueso / Olivo · 6.5:1</small></div>
-        <div style="background:#F4F1EA;color:#1C1B19">Aa <small>Carbón / Hueso · 15.2:1</small></div>
-        <div style="background:#E6DFD3;color:#1C1B19">Aa <small>Carbón / Travertino · 13:1</small></div>
+        <div style="background:#1C1B19;color:#F4F1EA">Aa <small>Hueso sobre Carbón · 15.2:1</small></div>
+        <div style="background:#4F5A43;color:#F4F1EA">Aa <small>Hueso sobre Olivo · 6.5:1</small></div>
+        <div style="background:#F4F1EA;color:#1C1B19">Aa <small>Carbón sobre Hueso · 15.2:1</small></div>
+        <div style="background:#E6DFD3;color:#1C1B19">Aa <small>Carbón sobre Travertino · 13:1</small></div>
       </div>
       <div class="ratio"><i style="flex:5;background:#F4F1EA"></i><i style="flex:3;background:#E6DFD3"></i><i style="flex:1.4;background:#1C1B19"></i><i style="flex:.6;background:#4F5A43"></i></div>
-      <p class="note">Proporción de uso sugerida: Hueso 50 · Travertino 30 · Carbón 14 · Olivo 6.</p>
+      <p class="note">Proporción de uso sugerida: Hueso 50 % · Travertino 30 % · Carbón 14 % · Olivo 6 %.</p>
     </article>
 
-    <article class="panel" data-panel="tipografia" data-name="Tipografía">
-      <h2 class="big">Type that<br>speaks.</h2>
-      <p class="lede">Tipografías de apoyo para interfaces y comunicaciones. No sustituyen el dibujo del logotipo original.</p>
+    <article class="panel" data-panel="tipografia" data-name="03 Tipografía">
+      <h2 class="h2">Tipografía</h2>
+      <p class="lede">Dos familias de apoyo: una serif clásica para títulos, en diálogo con el logotipo, y una sans moderna para textos. Ninguna reemplaza el dibujo del logo.</p>
+      <div class="two">
+        <div class="type-card"><span class="eyebrow">Títulos · Bodoni Moda</span><p class="tc-big serif">Aa Bb Cc</p><p>Para titulares, portadas y frases destacadas. Regular o itálica, nunca en negrita.</p></div>
+        <div class="type-card"><span class="eyebrow">Textos · Inter</span><p class="tc-big sans">Aa Bb Cc</p><p>Para párrafos, fichas técnicas, botones e interfaces. Regular y Medium.</p></div>
+      </div>
+      <h3 class="h3">Prueba tu texto</h3>
       <div class="type-play">
         <input id="typeInput" value="Espacios con sentido" aria-label="Texto de prueba">
-        <input id="typeSize" type="range" min="32" max="160" value="96" aria-label="Tamaño">
+        <input id="typeSize" type="range" min="24" max="96" value="56" aria-label="Tamaño">
       </div>
       <div class="specimen" id="specimen">Espacios con sentido</div>
-      <div class="two">
-        <div class="type-card"><span class="eyebrow">Titulares · Bodoni Moda</span><p class="tc-big">Aa <i>Bb</i> Cc</p><p>Serif de alto contraste, en diálogo con el logotipo. Interlineado 0.95, tracking −2%.</p></div>
-        <div class="type-card"><span class="eyebrow">Texto · Inter 400/500</span><p class="tc-big body">Aa 0123</p><p>Legibilidad para fichas técnicas, presentaciones y textos largos.</p></div>
-      </div>
       <div class="scale">
-        <div><span>Display</span><b style="font-size:72px">Obra</b></div>
-        <div><span>H1</span><b style="font-size:48px">Obra</b></div>
-        <div><span>H2</span><b style="font-size:32px">Obra</b></div>
-        <div><span>Body</span><b style="font-size:17px;font-family:Inter;font-weight:400">Obra</b></div>
+        <div><span>Título 1</span><b style="font-size:48px">Proyecto Estelar</b></div>
+        <div><span>Título 2</span><b style="font-size:32px">Proyecto Estelar</b></div>
+        <div><span>Subtítulo</span><b style="font-size:22px">Proyecto Estelar</b></div>
+        <div><span>Texto</span><b class="sans" style="font-size:16px">Proyecto Estelar, vivienda de 240 m² en Bogotá.</b></div>
       </div>
     </article>
 
-    <article class="panel" data-panel="laboratorio" data-name="Laboratorio">
-      <h2 class="big">Make it<br>yours.</h2>
-      <p class="lede">Visualiza las versiones originales sobre los fondos de la paleta, ajusta la escala y descarga la composición.</p>
-      <div class="lab">
-        <div class="lab-preview" id="preview"><img id="previewLogo" src="assets/baco-studio.png" alt="Vista previa del logotipo"></div>
-        <div class="lab-controls">
-          <span class="eyebrow">Logotipo</span>
-          <div class="seg" data-seg="logo"><button class="on" data-v="assets/baco-studio.png">BACO Studio</button><button data-v="assets/baco.png">BACO</button></div>
-          <span class="eyebrow">Fondo</span>
-          <div class="seg dots" data-seg="bg">
-            <button class="on" data-v="#F4F1EA" style="--c:#F4F1EA" aria-label="Hueso"></button>
-            <button data-v="#4F5A43" style="--c:#4F5A43" aria-label="Olivo"></button>
-            <button data-v="#E6DFD3" style="--c:#E6DFD3" aria-label="Travertino"></button>
-            <button data-v="#FFFFFF" style="--c:#FFFFFF" aria-label="Blanco"></button>
-            <button data-v="#1C1B19" style="--c:#1C1B19" aria-label="Carbón (negativo)"></button>
-          </div>
-          <span class="eyebrow">Escala <b id="scaleLabel">70%</b></span>
-          <input id="scale" type="range" min="25" max="95" value="70">
-          <button class="btn" id="compBtn">↓ Descargar PNG</button>
-        </div>
-      </div>
-    </article>
-
-    <article class="panel" data-panel="normas" data-name="Normas">
-      <h2 class="big">Keep it<br>consistent.</h2>
-      <p class="lede">Reglas esenciales para que la identidad sea reconocible en obra, digital, papelería y presentaciones.</p>
+    <article class="panel" data-panel="normas" data-name="04 Normas de uso">
+      <h2 class="h2">Normas de uso</h2>
+      <p class="lede">Reglas para que la marca se reconozca igual en obra, en papelería, en pantalla y en presentaciones.</p>
       <div class="rules">
-        <div class="rule do"><div class="rule-art"><img src="assets/baco.png" alt=""></div><b>✓ Deja respirar la marca</b><p>Márgenes amplios alrededor del logo.</p></div>
-        <div class="rule do"><div class="rule-art" style="background:#4F5A43"><img src="assets/baco.png" alt=""></div><b>✓ Contraste alto</b><p>Versiones negras sobre fondos claros.</p></div>
-        <div class="rule no"><div class="rule-art"><img src="assets/baco.png" alt="" style="transform:scaleX(1.6)"></div><b>✕ No deformar</b><p>Nunca estirar ni comprimir.</p></div>
-        <div class="rule no"><div class="rule-art"><img src="assets/baco.png" alt="" style="transform:rotate(-14deg)"></div><b>✕ No girar</b><p>El logo siempre horizontal.</p></div>
-        <div class="rule no"><div class="rule-art" style="background:#8a8a80"><img src="assets/baco.png" alt=""></div><b>✕ Bajo contraste</b><p>Evita fondos medios o fotos ruidosas.</p></div>
-        <div class="rule no"><div class="rule-art"><span class="fake">Baco studio</span></div><b>✕ No reescribir</b><p>No recrear el logo con otra fuente.</p></div>
+        <div class="rule do"><div class="rule-art"><img src="assets/baco.png" alt=""></div><b>Sí: espacio alrededor</b><p>Respeta el área libre alrededor del logo.</p></div>
+        <div class="rule do"><div class="rule-art on-dark" style="background:#1C1B19"><img src="assets/baco.png" alt=""></div><b>Sí: buen contraste</b><p>Logo negro en fondos claros, blanco en oscuros.</p></div>
+        <div class="rule do"><div class="rule-art on-dark" style="background:#4F5A43"><img src="assets/baco.png" alt=""></div><b>Sí: colores de la paleta</b><p>Usa solo fondos de la paleta de marca.</p></div>
+        <div class="rule no"><div class="rule-art"><img src="assets/baco.png" alt="" style="transform:scaleX(1.5)"></div><b>No: deformar</b><p>Nunca estires ni comprimas el logo.</p></div>
+        <div class="rule no"><div class="rule-art"><img src="assets/baco.png" alt="" style="transform:rotate(-12deg)"></div><b>No: girar</b><p>El logo siempre va horizontal.</p></div>
+        <div class="rule no"><div class="rule-art" style="background:#8f8a80"><img src="assets/baco.png" alt=""></div><b>No: bajo contraste</b><p>Evita fondos medios o fotos con mucho detalle.</p></div>
       </div>
     </article>
 
-    <article class="panel" data-panel="plantillas" data-name="Plantillas">
-      <h2 class="big">Ready to<br>publish.</h2>
-      <p class="lede">Plantillas SVG editables para redes y presentaciones. Propuestas digitales que no reemplazan los archivos vectoriales oficiales.</p>
-      <div class="tpls">
-        <figure><div class="tpl-prev" data-tpl="post"></div><figcaption><span>Post · 1080 × 1080</span><button class="chip" data-svg="post">↓ SVG</button></figcaption></figure>
-        <figure><div class="tpl-prev" data-tpl="story"></div><figcaption><span>Story · 1080 × 1920</span><button class="chip" data-svg="story">↓ SVG</button></figcaption></figure>
-        <figure class="wide"><div class="tpl-prev" data-tpl="deck"></div><figcaption><span>Portada · 1920 × 1080</span><button class="chip" data-svg="deck">↓ SVG</button></figcaption></figure>
-      </div>
-    </article>
-
-    <article class="panel" data-panel="movimiento" data-name="Movimiento">
-      <h2 class="big">Move with<br>purpose.</h2>
-      <p class="lede">El movimiento de BACO es arquitectónico: entra con firmeza, se asienta con suavidad. Nada rebota, nada gira sin razón.</p>
-      <div class="motion-demos">
-        <div class="md"><div class="md-stage"><i class="m-rise"></i></div><b>Rise</b><p>Entrada de contenido · 600 ms · cubic-bezier(.2,.8,.2,1)</p></div>
-        <div class="md"><div class="md-stage"><i class="m-wipe"></i></div><b>Wipe</b><p>Cambio de sección · 700 ms · cubic-bezier(.7,0,.2,1)</p></div>
-        <div class="md"><div class="md-stage"><i class="m-scale"></i></div><b>Settle</b><p>Hover en tarjetas · 400 ms · escala 1 → 1.03</p></div>
-      </div>
-      <button class="btn ghost" id="replay">↻ Repetir animaciones</button>
-    </article>
-
-    <article class="panel" data-panel="voz" data-name="Tono de voz">
-      <h2 class="big">Say it<br>simply.</h2>
-      <p class="lede">Hablamos como construimos: claro, cercano y seguro. Frases cortas. Verbos de acción. Cero tecnicismos innecesarios.</p>
+    <article class="panel" data-panel="voz" data-name="05 Tono de voz">
+      <h2 class="h2">Tono de voz</h2>
+      <p class="lede">Hablamos como construimos: claro, cercano y seguro. Frases cortas, verbos de acción y sin tecnicismos innecesarios.</p>
       <div class="voice">
-        <div class="v-row"><span class="v-no">✕</span><p>«Implementamos soluciones integrales de optimización espacial.»</p></div>
-        <div class="v-row"><span class="v-ok">✓</span><p>«Diseñamos espacios que funcionan y se sienten bien.»</p></div>
-        <div class="v-row"><span class="v-no">✕</span><p>«¡¡Increíble proyecto!! 🔥🔥»</p></div>
-        <div class="v-row"><span class="v-ok">✓</span><p>«Terminamos la fachada. Así se ve la luz a las 5 p. m.»</p></div>
+        <div class="v-row"><span class="v-no">No</span><p>«Implementamos soluciones integrales de optimización espacial.»</p></div>
+        <div class="v-row"><span class="v-ok">Sí</span><p>«Diseñamos espacios que funcionan y se sienten bien.»</p></div>
+        <div class="v-row"><span class="v-no">No</span><p>«¡¡Increíble proyecto!! 🔥🔥»</p></div>
+        <div class="v-row"><span class="v-ok">Sí</span><p>«Terminamos la fachada. Así entra la luz a las 5 p. m.»</p></div>
       </div>
       <div class="chips-row"><span class="tag">Claro</span><span class="tag">Cercano</span><span class="tag">Seguro</span><span class="tag">Preciso</span></div>
     </article>
 
-    <article class="panel" data-panel="recursos" data-name="Recursos">
-      <h2 class="big">Take what<br>you need.</h2>
-      <p class="lede">Logos originales, plantillas SVG editables y la paleta como tokens CSS.</p>
-      <ul class="dl-list">
-        <li><span><b>Logo BACO Studio</b><small>Original · PNG</small></span><a class="chip" href="assets/baco-studio.png" download="BACO-Studio-original.png">↓ PNG</a></li>
-        <li><span><b>Logo BACO</b><small>Original · PNG</small></span><a class="chip" href="assets/baco.png" download="BACO-original.png">↓ PNG</a></li>
-        <li><span><b>Post de Instagram</b><small>Plantilla · SVG 1080 × 1080</small></span><button class="chip" data-svg="post">↓ SVG</button></li>
-        <li><span><b>Historia vertical</b><small>Plantilla · SVG 1080 × 1920</small></span><button class="chip" data-svg="story">↓ SVG</button></li>
-        <li><span><b>Portada de proyecto</b><small>Plantilla · SVG 1920 × 1080</small></span><button class="chip" data-svg="deck">↓ SVG</button></li>
-        <li><span><b>Design tokens</b><small>Paleta · CSS</small></span><button class="chip" data-css>↓ CSS</button></li>
-      </ul>
-      <a class="btn" href="#/direction/kit">Ver el kit completo →</a>
+    <article class="panel" data-panel="plantillas" data-name="06 Plantillas">
+      <h2 class="h2">Plantillas</h2>
+      <p class="lede">Plantillas SVG editables para redes y presentaciones. Puedes abrirlas en Illustrator, Figma o Canva y cambiar los textos.</p>
+      <div class="tpls">
+        <figure><div class="tpl-prev" data-tpl="post"></div><figcaption><span>Post · 1080 × 1080</span><button class="chip" data-svg="post">Descargar SVG</button></figcaption></figure>
+        <figure><div class="tpl-prev" data-tpl="story"></div><figcaption><span>Historia · 1080 × 1920</span><button class="chip" data-svg="story">Descargar SVG</button></figcaption></figure>
+        <figure class="wide"><div class="tpl-prev" data-tpl="deck"></div><figcaption><span>Portada · 1920 × 1080</span><button class="chip" data-svg="deck">Descargar SVG</button></figcaption></figure>
+      </div>
     </article>
 
-    <article class="panel" data-panel="kit" data-name="Brand kit">
-      <div class="kit">
-        <span class="eyebrow">Complete asset pack</span>
-        <h2 class="big">Everything.<br>In one place.</h2>
-        <p class="lede">Logos PNG + plantillas SVG + tokens CSS + instrucciones, en un solo ZIP.</p>
-        <button class="btn xl" id="zipBtn">↓ Descargar BACO Brand Kit (.zip)</button>
-        <p class="note" id="status">Para guardar el manual como PDF usa «Imprimir → Guardar como PDF».</p>
+    <article class="panel" data-panel="laboratorio" data-name="07 Prueba del logo">
+      <h2 class="h2">Prueba del logo</h2>
+      <p class="lede">Elige versión, fondo y tamaño para ver cómo queda el logo y descarga la imagen en PNG.</p>
+      <div class="lab">
+        <div class="lab-preview" id="preview"><img id="previewLogo" src="assets/baco-studio.png" alt="Vista previa del logotipo"></div>
+        <div class="lab-controls">
+          <span class="eyebrow">Versión</span>
+          <div class="seg" data-seg="logo"><button class="on" data-v="assets/baco-studio.png">Principal</button><button data-v="assets/baco.png">Horizontal</button></div>
+          <span class="eyebrow">Fondo</span>
+          <div class="seg dots" data-seg="bg">
+            <button class="on" data-v="#F4F1EA" style="--c:#F4F1EA" aria-label="Hueso"></button>
+            <button data-v="#E6DFD3" style="--c:#E6DFD3" aria-label="Travertino"></button>
+            <button data-v="#FFFFFF" style="--c:#FFFFFF" aria-label="Blanco"></button>
+            <button data-v="#4F5A43" style="--c:#4F5A43" aria-label="Olivo"></button>
+            <button data-v="#1C1B19" style="--c:#1C1B19" aria-label="Carbón"></button>
+          </div>
+          <span class="eyebrow">Tamaño <b id="scaleLabel">60%</b></span>
+          <input id="scale" type="range" min="25" max="90" value="60">
+          <button class="btn" id="compBtn">Descargar PNG</button>
+        </div>
       </div>
+    </article>
+
+    <article class="panel" data-panel="recursos" data-name="08 Descargas">
+      <h2 class="h2">Descargas</h2>
+      <p class="lede">Archivos listos para usar. Las plantillas y los colores son propuestas digitales y no reemplazan los archivos vectoriales oficiales del logo.</p>
+      <ul class="dl-list">
+        <li><span><b>Logotipo principal</b><small>Original · PNG</small></span><a class="chip" href="assets/baco-studio.png" download="BACO-Studio-original.png">Descargar</a></li>
+        <li><span><b>Logotipo horizontal</b><small>Original · PNG</small></span><a class="chip" href="assets/baco.png" download="BACO-original.png">Descargar</a></li>
+        <li><span><b>Post de Instagram</b><small>Plantilla · SVG 1080 × 1080</small></span><button class="chip" data-svg="post">Descargar</button></li>
+        <li><span><b>Historia vertical</b><small>Plantilla · SVG 1080 × 1920</small></span><button class="chip" data-svg="story">Descargar</button></li>
+        <li><span><b>Portada de presentación</b><small>Plantilla · SVG 1920 × 1080</small></span><button class="chip" data-svg="deck">Descargar</button></li>
+        <li><span><b>Colores de marca</b><small>Tokens · CSS</small></span><button class="chip" data-css>Descargar</button></li>
+      </ul>
+      <div class="kit">
+        <div><b>Kit completo</b><p>Logotipos, plantillas, colores e instrucciones en un solo archivo ZIP.</p></div>
+        <button class="btn light" id="zipBtn">Descargar kit (.zip)</button>
+      </div>
+      <p class="note" id="status">Para guardar este manual como PDF usa «Imprimir → Guardar como PDF».</p>
     </article>
 
   </div>
 </div>
 
 <footer class="foot">
-  <div class="foot-row">
-    <div class="foot-links"><a href="#/inspiration">Inspiration</a><a href="#/direction">Direction</a><a href="#/direction/recursos">Recursos</a></div>
-    <span class="eyebrow">Designed to build. © 2026 BACO Studio</span>
-  </div>
-  <div class="foot-word" aria-hidden="true">BACO<span>.</span></div>
+  <img src="assets/baco-studio.png" alt="BACO Studio" class="foot-logo">
+  <div class="foot-links"><a href="#/inspiration">Inspiración</a><a href="#/direction">Dirección</a><a href="#/direction/recursos">Descargas</a></div>
+  <span class="note">© 2026 BACO Studio · Manual de marca</span>
 </footer>
 
 <div class="toast" role="status"></div>

@@ -49,27 +49,27 @@
     sec.classList.remove('ready');
     requestAnimationFrame(() => requestAnimationFrame(() => sec.classList.add('ready')));
     scrollTo({ top: 0, behavior: 'instant' });
-    document.title = `BACO® Design — ${v === 'direction' ? 'Direction' : 'Inspiration'}`;
+    document.title = `BACO Studio — ${v === 'direction' ? 'Dirección de marca' : 'Inspiración'} · Manual de marca`;
     v === 'inspiration' ? reel.resume() : reel.pause(true);
   }
 
   function changeView(v, after) {
     if (view === null || reduce) { setView(v); after && after(); return; }
     if (busy) return; busy = true;
-    cWord.textContent = v === 'direction' ? 'Direction' : 'Inspiration';
+    
     curtain.className = 'curtain in';
     setTimeout(() => {
       setView(v);
       curtain.className = 'curtain out';
-      setTimeout(() => { curtain.className = 'curtain'; busy = false; after && after(); }, 620);
-    }, 650);
+      setTimeout(() => { curtain.className = 'curtain'; busy = false; after && after(); }, 460);
+    }, 360);
   }
 
   function openPanel(id) {
     panel = id;
     panels.forEach(p => p.classList.toggle('on', p.dataset.panel === id));
     const p = panels.find(x => x.dataset.panel === id);
-    $('#sheetCrumb').textContent = 'Direction / ' + p.dataset.name;
+    $('#sheetCrumb').textContent = 'Dirección · ' + p.dataset.name;
     $('.sheet-body').scrollTop = 0;
     document.body.classList.add('sheet-open', 'locked');
     if (id === 'plantillas') renderTplPreviews();
@@ -228,7 +228,7 @@
   const spec = $('#specimen'), ti = $('#typeInput'), ts = $('#typeSize');
   const upType = () => { spec.textContent = ti.value || ' '; spec.style.fontSize = ts.value + 'px'; };
   ti.addEventListener('input', upType); ts.addEventListener('input', upType);
-  if (innerWidth < 640) ts.value = 56; upType();
+  if (innerWidth < 640) ts.value = 40; upType();
 
   /* ---------- logo lab ---------- */
   const DARK = ['#1C1B19', '#4F5A43'];
@@ -273,7 +273,7 @@
   $$('[data-css]').forEach(b => b.addEventListener('click', () => { save('BACO-tokens.css', new Blob([css], { type: 'text/css' })); toast('Tokens descargados'); }));
 
   /* ---------- motion replay ---------- */
-  $('#replay').addEventListener('click', () => $$('.md-stage i').forEach(i => { i.style.animation = 'none'; void i.offsetWidth; i.style.animation = ''; }));
+  
 
   /* ---------- ZIP kit ---------- */
   $('#zipBtn').addEventListener('click', async () => {
