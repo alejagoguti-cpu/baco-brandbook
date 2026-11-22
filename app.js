@@ -107,112 +107,122 @@
     const y = scrollY; bar.classList.toggle('hide', y > 160 && y > lastY); lastY = y;
   }, { passive: true });
 
-  /* ---------- REEL carousel ---------- */
+  /* ---------- VERTICAL STAGE carousel (wise.design style) ---------- */
   const reel = (() => {
-    const el = $('[data-reel]'), track = $('.reel-track', el), cards = $$('.card', el);
-    const cap = $('.reel-caption'), tagEl = $('.reel-tag'), titleEl = $('.reel-title');
-    const countEl = $('.reel-count b'), dotsEl = $('.reel-dots'), playBtn = $('[data-play]');
-    const N = cards.length, DUR = 5200;
-    $('.reel-count').lastChild.textContent = ' / ' + String(N).padStart(2, '0');
-    const dots = cards.map((_, i) => {
-      const b = document.createElement('button'); b.setAttribute('role', 'tab'); b.setAttribute('aria-label', 'Historia ' + (i + 1));
-      b.addEventListener('click', () => go(i)); dotsEl.appendChild(b); return b;
-    });
-    let idx = 0, x = 0, playing = !reduce, hold = false, t0 = performance.now(), elapsed = 0;
+    const stage = $('[data-stage]'), items = $$('.item', stage), N = items.length;
+    const rot = $('.insp-title .rot'), playBtn = $('[data-play]');
+    const DUR = 4200, GAP = 14;
+    let idx = 0, playing = !reduce, hold = false, last = performance.now(), elapsed = 0;
+    const ar = items.map(it => { const [a, b] = it.dataset.ar.split('/').map(Number); return a / b; });
 
-    const offsetFor = i => {
-      const c = cards[i];
-      return -(c.offsetLeft + c.offsetWidth / 2 - el.clientWidth / 2);
-    };
-    function apply(px, anim) {
-      track.style.transition = anim ? 'transform .9s cubic-bezier(.2,.8,.2,1)' : 'none';
-      track.style.transform = `translate3d(${px}px,0,0)`;
+    function sizes() {
+      const vw = innerWidth, vh = innerHeight, mobile = vw < 640;
+      const boxW = mobile ? vw - 32 : Math.min(vw * 0.62, 1040);
+      const boxH = vh - (mobile ? 250 : 300);
+      const thumbW = mobile ? 76 : 124;
+      return items.map((_, i) => {
+        let w = boxW, h = w / ar[i];
+        if (h > boxH) { h = boxH; w = h * ar[i]; }
+        return { w, h, s: thumbW / w };
+      });
     }
+
+    function layout(anim = true) {
+      const sz = sizes();
+      const pos = new Array(N);
+      pos[idx] = 0;
+      for (let i = idx + 1; i < N; i++) {
+        const prevH = i - 1 === idx ? sz[i - 1].h : sz[i - 1].h * sz[i - 1].s;
+        pos[i] = pos[i - 1] + prevH / 2 + GAP + (sz[i].h * sz[i].s) / 2;
+      }
+      for (let i = idx - 1; i >= 0; i--) {
+        const nextH = i + 1 === idx ? sz[i + 1].h : sz[i + 1].h * sz[i + 1].s;
+        pos[i] = pos[i + 1] - nextH / 2 - GAP - (sz[i].h * sz[i].s) / 2;
+      }
+      items.forEach((it, i) => {
+        const { w, h, s } = sz[i], active = i === idx, sc = active ? 1 : s;
+        it.style.transition = anim ? '' : 'none';
+        it.style.width = w + 'px'; it.style.height = h + 'px';
+        it.style.marginLeft = -w / 2 + 'px'; it.style.marginTop = -h / 2 + 'px';
+        it.style.transform = `translate3d(0,${pos[i]}px,0) scale(${sc})`;
+        it.style.setProperty('--rad', active ? '24px' : Math.min(w, h) / 2 + 'px');
+        it.style.opacity = Math.abs(pos[i]) > innerHeight ? 0 : 1;
+        it.classList.toggle('active', active);
+        it.setAttribute('aria-hidden', !active);
+      });
+    }
+
+    function setTitle() {
+      const it = items[idx];
+      const span = document.createElement('span');
+      span.className = 'rot-item in';
+      span.innerHTML = `${String(idx + 1).padStart(2, '0')} — ${it.dataset.title}<small>${it.dataset.desc}</small>`;
+      rot.replaceChildren(span);
+    }
+
     function go(i, anim = true) {
-      idx = (i + N) % N; x = offsetFor(idx); apply(x, anim);
-      cards.forEach((c, k) => { c.classList.toggle('active', k === idx); c.setAttribute('aria-hidden', k !== idx); });
-      dots.forEach((d, k) => { d.classList.toggle('on', k === idx); d.style.setProperty('--p', 0); });
-      countEl.textContent = String(idx + 1).padStart(2, '0');
-      tagEl.textContent = cards[idx].dataset.tag; titleEl.textContent = cards[idx].dataset.title;
-      cap.classList.remove('swap'); void cap.offsetWidth; cap.classList.add('swap');
-      elapsed = 0; t0 = performance.now();
+      idx = Math.max(0, Math.min(N - 1, i));
+      layout(anim); setTitle(); elapsed = 0;
     }
+    const next = () => go(idx + 1 >= N ? 0 : idx + 1);
+    const prev = () => go(idx - 1);
 
-    // autoplay loop with progress in the active dot
-    function tick(now) {
-      if (playing && !hold && view === 'inspiration') {
-        elapsed += now - t0;
-        const p = Math.min(elapsed / DUR, 1);
-        dots[idx].style.setProperty('--p', p);
-        if (p >= 1) go(idx + 1);
+    setInterval(() => {
+      const now = performance.now(), dt = now - last; last = now;
+      if (playing && !hold && view === 'inspiration' && !document.hidden && !panel) {
+        elapsed += dt;
+        if (elapsed >= DUR) next();
       }
-      t0 = now; requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
+    }, 100);
 
-    // drag / swipe with velocity
-    let sx = 0, sy = 0, base = 0, dragging = false, moved = false, lastX = 0, lastT = 0, v = 0, axis = null;
-    el.addEventListener('pointerdown', e => {
-      if (e.button !== 0) return;
-      dragging = true; moved = false; axis = null; sx = lastX = e.clientX; sy = e.clientY; base = x; lastT = performance.now(); v = 0; hold = true;
-    });
-    addEventListener('pointermove', e => {
-      if (!dragging) return;
-      const dx = e.clientX - sx, dy = e.clientY - sy;
-      if (!axis && (Math.abs(dx) > 6 || Math.abs(dy) > 6)) {
-        axis = Math.abs(dx) > Math.abs(dy) ? 'x' : 'y';
-        if (axis === 'x') { el.classList.add('dragging'); el.setPointerCapture?.(e.pointerId); }
-      }
-      if (axis !== 'x') return;
-      moved = true;
-      const now = performance.now(); v = (e.clientX - lastX) / Math.max(now - lastT, 1); lastX = e.clientX; lastT = now;
-      // rubber-band at the ends
-      let nx = base + dx; const min = offsetFor(N - 1), max = offsetFor(0);
-      if (nx > max) nx = max + (nx - max) * .35; if (nx < min) nx = min + (nx - min) * .35;
-      apply(nx, false); x = nx;
-    });
-    function end() {
-      if (!dragging) return; dragging = false; el.classList.remove('dragging'); hold = false;
-      if (!moved) return;
-      const projected = x + v * 220; // momentum
-      let best = 0, bd = Infinity;
-      cards.forEach((_, i) => { const d = Math.abs(offsetFor(i) - projected); if (d < bd) { bd = d; best = i; } });
-      if (best === idx && Math.abs(v) > .3) best = idx + (v < 0 ? 1 : -1);
-      go(Math.max(0, Math.min(N - 1, best)));
-    }
-    addEventListener('pointerup', end); addEventListener('pointercancel', end);
-    el.addEventListener('click', e => {
-      if (moved) { e.preventDefault(); return; }
-      const c = e.target.closest('.card'); if (c) { const i = cards.indexOf(c); if (i !== idx) go(i); }
-    }, true);
-
-    // horizontal wheel / trackpad
-    let wheelLock = 0;
-    el.addEventListener('wheel', e => {
-      if (Math.abs(e.deltaX) <= Math.abs(e.deltaY) || Math.abs(e.deltaX) < 12) return;
-      e.preventDefault(); const now = Date.now(); if (now < wheelLock) return;
-      wheelLock = now + 650; go(idx + (e.deltaX > 0 ? 1 : -1));
+    // wheel / trackpad (vertical or horizontal)
+    let wheelAcc = 0, wheelLock = 0;
+    stage.addEventListener('wheel', e => {
+      e.preventDefault();
+      const d = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX;
+      const now = Date.now(); if (now < wheelLock) return;
+      wheelAcc += d;
+      if (Math.abs(wheelAcc) > 40) { wheelAcc > 0 ? next() : prev(); wheelAcc = 0; wheelLock = now + 550; }
     }, { passive: false });
 
-    el.addEventListener('keydown', e => {
-      if (e.key === 'ArrowRight') { e.preventDefault(); go(idx + 1); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(idx - 1); }
+    // drag / swipe
+    let sy = null, sx = 0, moved = false;
+    stage.addEventListener('pointerdown', e => { sy = e.clientY; sx = e.clientX; moved = false; hold = true; stage.classList.add('dragging'); });
+    addEventListener('pointermove', e => {
+      if (sy === null) return;
+      const dy = e.clientY - sy, dx = e.clientX - sx, d = Math.abs(dy) > Math.abs(dx) ? dy : dx;
+      if (Math.abs(d) > 45) { d < 0 ? next() : prev(); sy = e.clientY; sx = e.clientX; moved = true; }
     });
-    el.addEventListener('mouseenter', () => hold = true);
-    el.addEventListener('mouseleave', () => { if (!dragging) hold = false; });
-    $('[data-prev]').addEventListener('click', () => go(idx - 1));
-    $('[data-next]').addEventListener('click', () => go(idx + 1));
+    const end = () => { if (sy === null) return; sy = null; hold = false; stage.classList.remove('dragging'); };
+    addEventListener('pointerup', end); addEventListener('pointercancel', end);
+    stage.addEventListener('click', e => {
+      if (moved) return;
+      const it = e.target.closest('.item'); if (it && !it.classList.contains('active')) go(items.indexOf(it));
+    });
+
+    addEventListener('keydown', e => {
+      if (view !== 'inspiration' || panel) return;
+      if (['ArrowDown', 'ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
+      if (['ArrowUp', 'ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); prev(); }
+    });
+
     function setPlaying(p) {
       playing = p; playBtn.classList.toggle('paused', !p);
       playBtn.setAttribute('aria-label', p ? 'Pausar' : 'Reproducir');
     }
     playBtn.addEventListener('click', () => setPlaying(!playing));
     setPlaying(playing);
-    document.addEventListener('visibilitychange', () => { hold = document.hidden; });
-    addEventListener('resize', () => go(idx, false));
+    addEventListener('resize', () => layout(false));
+    go(0, false);
 
-    return { go, pause: () => {}, resume: () => requestAnimationFrame(() => go(idx, false)) };
+    return { go, pause: () => {}, resume: () => requestAnimationFrame(() => layout(false)) };
   })();
+
+  // intro animation on first load (card spins in, carousel rises)
+  if (!reduce && parse().v === 'inspiration') {
+    root.classList.add('intro');
+    setTimeout(() => root.classList.remove('intro'), 1100);
+  }
 
   /* ---------- reveal on scroll ---------- */
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } }), { threshold: .15 });
