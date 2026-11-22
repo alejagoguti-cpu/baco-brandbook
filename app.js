@@ -56,7 +56,7 @@
   function changeView(v, after) {
     if (view === null || reduce) { setView(v); after && after(); return; }
     if (busy) return; busy = true;
-    cWord.textContent = v === 'direction' ? 'Direction.' : 'Inspiration.';
+    cWord.textContent = v === 'direction' ? 'Direction' : 'Inspiration';
     curtain.className = 'curtain in';
     setTimeout(() => {
       setView(v);
@@ -231,11 +231,12 @@
   if (innerWidth < 640) ts.value = 56; upType();
 
   /* ---------- logo lab ---------- */
-  const lab = { logo: 'assets/baco-studio.png', bg: '#F5F5EF' };
+  const DARK = ['#1C1B19', '#4F5A43'];
+  const lab = { logo: 'assets/baco-studio.png', bg: '#F4F1EA' };
   const prev = $('#preview'), prevLogo = $('#previewLogo'), scale = $('#scale');
   function upLab() {
     prevLogo.src = lab.logo; prev.style.background = lab.bg;
-    prev.classList.toggle('on-dark', lab.bg === '#141414');
+    prev.classList.toggle('on-dark', DARK.includes(lab.bg));
     prevLogo.style.width = scale.value + '%'; $('#scaleLabel').textContent = scale.value + '%';
   }
   $$('[data-seg]').forEach(seg => seg.addEventListener('click', e => {
@@ -250,7 +251,7 @@
     const ctx = c.getContext('2d'); ctx.fillStyle = lab.bg; ctx.fillRect(0, 0, c.width, c.height);
     const r = Math.min(c.width * scale.value / 100 / img.width, c.height * .7 / img.height);
     const w = img.width * r, h = img.height * r;
-    if (lab.bg === '#141414') { ctx.filter = 'invert(1)'; ctx.globalCompositeOperation = 'screen'; }
+    if (DARK.includes(lab.bg)) { ctx.filter = 'invert(1)'; ctx.globalCompositeOperation = 'screen'; }
     else ctx.globalCompositeOperation = 'multiply';
     ctx.drawImage(img, (c.width - w) / 2, (c.height - h) / 2, w, h);
     c.toBlob(b => b && save('BACO-composicion.png', b), 'image/png');
@@ -260,15 +261,15 @@
   /* ---------- SVG templates ---------- */
   function svg(type) {
     const dims = { post: [1080, 1080], story: [1080, 1920], deck: [1920, 1080] }, [w, h] = dims[type];
-    const bg = { post: '#141414', story: '#D8F24B', deck: '#E8E9DF' }[type], fg = type === 'post' ? '#F5F5EF' : '#141414';
+    const bg = { post: '#1C1B19', story: '#4F5A43', deck: '#E6DFD3' }[type], fg = type === 'post' ? '#F4F1EA' : '#1C1B19';
     const title = { post: ['ESPACIOS', 'CON SENTIDO'], story: ['DISEÑAR', 'EL FUTURO'], deck: ['ARQUITECTURA', 'EN MOVIMIENTO'] }[type];
     const fs = type === 'deck' ? 150 : 110, f = 'Inter Tight,Arial,sans-serif';
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="${bg}"/><text x="70" y="110" fill="${fg}" font-size="26" font-weight="700" font-family="${f}" letter-spacing="5">BACO STUDIO</text><text x="70" y="${h * .5}" fill="${fg}" font-size="${fs}" font-weight="800" font-family="${f}" letter-spacing="-4">${title[0]}</text><text x="70" y="${h * .5 + fs}" fill="${fg}" font-size="${fs}" font-weight="800" font-family="${f}" letter-spacing="-4">${title[1]}</text><circle cx="${w - 110}" cy="100" r="30" fill="${type === 'story' ? '#141414' : '#D8F24B'}"/><line x1="70" y1="${h - 120}" x2="${w - 70}" y2="${h - 120}" stroke="${fg}" stroke-width="2"/><text x="70" y="${h - 70}" fill="${fg}" font-size="22" font-family="${f}" letter-spacing="4">ARQUITECTURA Y CONSTRUCCIÓN</text></svg>`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><rect width="${w}" height="${h}" fill="${bg}"/><text x="70" y="110" fill="${fg}" font-size="26" font-weight="700" font-family="${f}" letter-spacing="5">BACO STUDIO</text><text x="70" y="${h * .5}" fill="${fg}" font-size="${fs}" font-weight="400" font-family="Bodoni Moda,Didot,Georgia,serif" letter-spacing="-2">${title[0]}</text><text x="70" y="${h * .5 + fs}" fill="${fg}" font-size="${fs}" font-weight="400" font-family="Bodoni Moda,Didot,Georgia,serif" letter-spacing="-2">${title[1]}</text><circle cx="${w - 110}" cy="100" r="30" fill="${type === 'story' ? '#1C1B19' : '#4F5A43'}"/><line x1="70" y1="${h - 120}" x2="${w - 70}" y2="${h - 120}" stroke="${fg}" stroke-width="2"/><text x="70" y="${h - 70}" fill="${fg}" font-size="22" font-family="${f}" letter-spacing="4">ARQUITECTURA Y CONSTRUCCIÓN</text></svg>`;
   }
   function renderTplPreviews() { $$('[data-tpl]').forEach(d => { if (!d.innerHTML) d.innerHTML = svg(d.dataset.tpl); }); }
   $$('[data-svg]').forEach(b => b.addEventListener('click', () => { save(`BACO-${b.dataset.svg}.svg`, new Blob([svg(b.dataset.svg)], { type: 'image/svg+xml' })); toast('Plantilla descargada'); }));
 
-  const css = ':root {\n  --baco-ink: #141414;\n  --baco-paper: #F5F5EF;\n  --baco-signal: #D8F24B;\n  --baco-stone: #E8E9DF;\n  --baco-font-display: "Inter Tight", sans-serif;\n  --baco-font-body: "Inter", sans-serif;\n  --baco-radius: 24px;\n}\n';
+  const css = ':root {\n  --baco-carbon: #1C1B19;\n  --baco-hueso: #F4F1EA;\n  --baco-olivo: #4F5A43;\n  --baco-travertino: #E6DFD3;\n  --baco-font-display: "Inter Tight", sans-serif;\n  --baco-font-body: "Inter", sans-serif;\n  --baco-radius: 24px;\n}\n';
   $$('[data-css]').forEach(b => b.addEventListener('click', () => { save('BACO-tokens.css', new Blob([css], { type: 'text/css' })); toast('Tokens descargados'); }));
 
   /* ---------- motion replay ---------- */
